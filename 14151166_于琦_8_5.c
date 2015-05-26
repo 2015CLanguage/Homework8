@@ -16,13 +16,13 @@ void main()
 		m++;
 		}
 		i++;
-		if(i==n-1)
+		if(i==n)
 			i=0;
 		if(m==n-1)
 			break;
 	}
 	for(i=0;i<n;i++){
 		if(*(a+i)!=0)
-			printf("%d\n",i);
+			printf("%d\n",i+1);
 	}
 }
