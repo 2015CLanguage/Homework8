@@ -1,0 +1,37 @@
+#include<stdio.h>
+void input(int * number){
+	int i;
+	printf("请输入10个数字：\n");
+	for (i = 0; i < 10; i++){
+		scanf_s("%d", &number[i]);
+	}
+}
+void output(int * number){
+	int *p;
+	for (p = number; p < number + 10; p++)
+		printf("%d\t", *p);
+	printf("\n");
+}
+void paixu(int *number){
+	int *max, *min, *p, a;
+	max = min = number;
+	for (p = number + 1; p < number + 10; p++){
+		if (*p>*max)
+			max = p;
+		else if (*p < *min)
+			min = p;
+	}
+	a = number[0];
+	number[0] = *min;
+	*min = a;
+	a =number[9];
+	number[9] = *max;
+	*max = a;
+}
+void main()
+{
+	int number[10];
+	input(number);
+	paixu(number);
+	output(number);
+}
