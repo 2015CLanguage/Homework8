@@ -5,7 +5,7 @@ void input(int *num)                 //输入函数
 	printf("输入十个整数:\n");
 	for (i = num; i<num + 10; i++)
 	{
-		scanf_s("%d", i);
+		scanf("%d", i);
 	}
 }
 void solution(int *num)                         //处理函数
