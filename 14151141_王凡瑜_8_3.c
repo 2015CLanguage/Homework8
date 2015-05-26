@@ -2,6 +2,7 @@
 
 void Input(int *p);
 void Output(int *p);
+void Process(int a[]);
 
 void main()
 {
@@ -24,7 +25,7 @@ void Input(int *p)
 
 void Output(int *p)
 {
-	printf("The processed numbers are:.\n");
+	printf("The processed numbers are:\n");
 	int i;
 	for(i=0;i<10;i++)
 	{
@@ -34,16 +35,18 @@ void Output(int *p)
 	printf("\n");
 }
 
-void Process(int *p)
+void Process(int a[])
 {
-	int i,max=*p,min=*p,temp;
-	p++;
+	int i,*p=a,max=*p,min=*p;
 	for(i=1;i<10;i++)
 	{
+		p++;
 		if(*p>max)
 			max=*p;
 		if(*p<min)
 			min=*p;
-		p++;
 	}
+	*p=max;
+	p=a;
+	*p=min;
 }
