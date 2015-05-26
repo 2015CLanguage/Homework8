@@ -1,0 +1,41 @@
+#include<stdio.h>
+void min(int *a);
+void max(int *a);
+int main()
+{
+	int i,a[10];
+	printf("输入十个整数：");
+	for(i=0;i<10;i++)
+		scanf("%d",&a[i]);
+	min(a);
+	max(a);
+	for(i=0;i<10;i++)
+		printf("%5d",a[i]);
+	printf("\n");
+	return 0;
+}
+
+
+void min(int *a)
+{
+	int *min,*p,temp;
+	min=a;
+	for(p=a+1;p<a+10;p++)
+		if(*p<*min)
+			min=p;
+		temp=a[0];
+		a[0]=*min;
+		*min=temp;
+}
+
+void max(int *a)
+{
+	int *max,*p,temp;
+	max=a+1;
+	for(p=a+2;p<a+10;p++)
+		if(*p>*max)
+			max=p;
+		temp=a[9];
+		a[9]=*max;
+		*max=temp;
+}
