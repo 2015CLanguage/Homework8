@@ -1,0 +1,39 @@
+int main()
+{
+	void f(int *a);
+    void g(int *a);
+    void h(int *a);
+	int a[10];
+	f(a);
+	g(a);
+	h(a);
+	return 0;
+ } 
+void f(int *a)
+ {
+ 	int i;
+ 	printf("请输入10个数"); 
+ 	for(i=0;i<10;i++)
+ 	    scanf("%d",&a[i]); 
+ }
+void g(int *a)
+{
+	int *max,*min,*p,t,q;
+	max=min=a;
+	for(p=a;p<a+10;p=p+1)
+	    {
+	    	if(*p>*max)
+	    	    max=p;
+	    	if(*p<*min)
+	    	    min=p;
+		}
+	t=a[0],a[0]=*min,*min=t;
+	q=a[10],a[10]=*max,*max=q;	
+}
+void h(int *a)
+{
+	int *i;
+	for(i=a;i<a+10;i++)
+	    {printf("%d",*i);
+	     printf("\n");}
+}
