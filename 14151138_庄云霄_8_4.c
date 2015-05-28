@@ -6,14 +6,14 @@
 int main(){
 	
 	void input(int *list1,int n);	
-	void move(int *list1,int m,int n);
-	void output(int *list1,int n);
+	void move(int *list1,int m,int n);  //定义三个函数，分别实现输入、转化和输出
+	void output(int *list1,int n);  //定义几个指针类型的函数
 	int n,m,list1[10];
-	printf("please input how many number will you input(<11):\n");
+	printf("please input how many number will you input(<11):\n");   //首先输入想要输入的数字n
 	scanf("%d",&n);
-	printf("please input %d numbers:\n",n);
+	printf("please input %d numbers:\n",n);               //开始进行输入数字
 	input(list1,n);
-	printf("how many places do you want to move?\n");
+	printf("how many places do you want to move?\n");   //然后输入想要移动的数字数
 	scanf("%d",&m);
 	move(list1,m,n);
 	output(list1,n);
@@ -31,15 +31,15 @@ void output(int *list1,int n){
 void move(int *list1,int m,int n){
 	int list2[20]={0},*p,*q;
 	q=list2;
-	for(p=list1;p<list1+n;p++,q++){
+	for(p=list1;p<list1+n;p++,q++){                        //将list1前n个数强行赋给list2的前n个数
 		*q=*p;
 	}
-	for(p=list1,q=list2+n;p<list1+n;p++,q++){
+	for(p=list1,q=list2+n;p<list1+n;p++,q++){                //将list1前n个数强行赋给list2的第n+1到第2n个数
 		*q=*p;
 	}
 	
 	for(q=list2+n-m,p=list1;q<list2+n+n-m;q++,p++){
-		printf("%d",*q);
+		//printf("%d",*q);                                   //将list2中的从n-m个数到2n-m个数强行赋给list1，大功告成
 		*p=*q;
 	}
 	
