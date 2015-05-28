@@ -5,7 +5,6 @@ void del(int *p,int n,int x)
 	for(j=x;j<n-1;j++)
 		*(p+j)=*(p+j+1);
 	*(p+n-1)=0;
-
 }
 void main()
 {
