@@ -1,46 +1,52 @@
 #include<stdio.h>
-int main()
-{
-	void input(int *x);      //函数参数是指针类型 
-	void hexin(int *x);      
-	void output(int *x);
-	int x[10];
-	input(x);
-	hexin(x);
-	output(x);
-	return 0;
-}
+int main(){
+	void input(int *number);  //函数定义区，注意答案中的void input(int *)也是正确的
+	void diaohuan(int *number);
+	void output(int *number);
+	int number[10];
+	input(number);
+	diaohuan(number);
+	output(number);
+} 
 
-void input(int *x){
-	printf("输入10个数");
-	int i;
-	for(i=0;i<10;i++){
-		scanf("%d",x[i]);
-	}
-}
 
-void hexin(int *x){
-	int *max,*min,*p,temp;      //用到temp这个中间的临时变量 
-	max=min=x;
-	for(p=x+1;p<x+10;p++){
-		if(*p>*max)  max=p;
-	}             //找出最大的数和最小的数所在的地址
-	temp=x[9];x[9]=*max;*max=temp;
-	//并进行将最大数与最后一个数互换和将最小数和第一个数互换的操作
-	for(p=x+1;p<x+10;p++){
-	if(*p<*min) min=p;
-	}
-	temp=x[0];x[0]=*min;*min=temp;
-}
-
-void output(int *x){
+void input(int *number){
+	printf("please input 10 num:\n");
 	int *p;
-	for(p=x;p<x+10;p++){
-		printf("转化过后的数字为：%d",*p);
-	}
-	
-	printf("\n");
-	
-	
+	p=number;
+	for(;p<number+10;p++){        //这里采用了和答案完全不同的用法，这里纯粹是用指针进行输入
+		scanf("%d",p);
+	} 
 }
 
+void diaohuan(int *number){
+	int *max,*min,*p,temp1,temp2;
+	max=min=p=number;
+	for(p=number;p<number+10;p++){   //这里采用的也是和答案不同的用法，先寻找最小的数并将其进行位置互换
+		if(*p<*min){
+			min=p;
+		}
+	}
+	temp1=*number;
+	*number=*min;
+	*min=temp1;
+	for(p=number;p<number+10;p++){  //然后寻找最大的数，并进行位置互换
+		if(*p>*max){
+			max=p;
+		}
+	}
+	temp2=*(number+9);
+	*(number+9)=*max;
+	*max=temp2;
+}
+
+
+void output(int *number){
+	int *p;
+	printf("now they are:\n");
+	for(p=number;p<number+10;p++){    //哈哈 我已经完全明白指针的意义和其用法啦
+		printf("%d",*p);
+	}
+}
+	
+	
