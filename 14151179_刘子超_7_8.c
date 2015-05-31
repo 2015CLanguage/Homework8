@@ -1,20 +1,20 @@
-#include <stdio.h>
-void change(char a[8]);
+#include<stdio.h>
+#include<string.h>
+char a[10]=;
+void change(char a[10]);
 void main()
 {
-    char a[8]={0};
-    int i;
-    printf("number：\n");
-    gets(a);
-    change(a);
-    puts(a);
+	gets(a);
+	change(a);
 }
-void change(char a[8])
-{ 
-    int j; 
-    for(j=3;j>0;j--)
-    { 
-        a[j*i]=aji]; 
-        a[2*j-1]=' '; 
-    } 
-} 
+void change(char a[10])
+{
+	int k;
+	char b[10];
+	for(k=0;k<4;k++)
+	{
+		b[2*k]=a[k];
+		b[2*k+1]=' ';
+	}
+    puts(b);
+}
