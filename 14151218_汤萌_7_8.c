@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-	char a[9] = {' '};
+	char a[8] = {''};
 	void insert(char a[]);
 	printf("请输入一个四位数：\n");
 	scanf("%s", a);
@@ -12,7 +12,7 @@ int main()
 void insert(char a[])
 {
 	int i;
-	for (i = 4; i>0; i--)
+	for (i = 3; i>0; i--)
 	{
 		a[2 * i] = a[i];
 		a[2 * i - 1] = ' ';
