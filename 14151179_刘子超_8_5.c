@@ -1,6 +1,6 @@
 #include<stdio.h>
 int out(int a[20],int);
-int a[20];
+int a[20]={0};
 int main()
 {
 	int i,n,p;
@@ -8,7 +8,7 @@ int main()
 	scanf("%d",&n);
 	printf("\n");
 	for(i=0;i<n;i++)
-		a[i]=i;
+		a[i]=i+1;
 	p=out(a,n);
 	printf("he is %d",p);
 	return 0;
@@ -24,9 +24,15 @@ int out(int a[20],int n)
 			k=0;t++;*(p+j)=0;
 		}
 		j++;
-		if(j==n)j==0;
+		if(j==n)j=0;
 	}
-	while(*p==0)p++;
-	s=*p;
-	return s;
+	for(p=a;p<a+n;p++)
+	{
+		if(*p!=0)
+		{
+			s=*p;
+			break;
+		}
+	}
+    return s;
 }
