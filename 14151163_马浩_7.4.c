@@ -1,4 +1,4 @@
-#include"stdio.h"
+#include<stdio.h>
 void convert(int a[3][3]);
 int main()
 {
