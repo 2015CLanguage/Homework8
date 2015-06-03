@@ -1,0 +1,38 @@
+#include<stdio.h>
+void value(int a[3][3]);
+void value(int a[3][3])
+{
+	int k,i,j;
+	for(i=0;i<3;i++)
+	{
+		for(j=i+1;j<3;j++)
+		{
+		    k=a[i][j];
+		    a[i][j]=a[j][i];
+		    a[j][i]=k;
+		}
+    }
+}
+
+int main()
+{
+	int i,j,a[3][3];
+	printf("input your 3*3 a[3][3]:\n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			scanf("%5d",&a[i][j]);
+        }
+        printf("\n");
+	}
+    value(a);
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+			{
+			    printf("%5d",a[i][j]);
+	        }
+        printf("\n");
+	}
+}
